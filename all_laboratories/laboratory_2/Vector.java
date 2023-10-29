@@ -86,7 +86,13 @@ public class Vector {
 
         // Wait till all threads are finished.
         for (Thread j : all_Thread) {
-            j.join();
+            try{
+                j.join();
+            }
+            catch(InterruptedException e) {
+                Thread.currentThread().interrupt();
+                System.err.println("Interrupted");
+            }
         }
 
         return result;
@@ -141,7 +147,14 @@ public class Vector {
 
         // Wait till all threads are finished.
         for (Thread j : all_Thread) {
-            j.join();
+            try{
+                j.join();
+            }
+            catch(InterruptedException e) {
+                Thread.currentThread().interrupt();
+                System.err.println("Thread interrupted");
+                //main().interrupt();     
+            }
         }
 
         // Sum partial results.
@@ -222,6 +235,7 @@ public class Vector {
         if (this.elements.length != other.elements.length) {
             throw new IllegalArgumentException("different lengths of summed vectors");
         }
+
         Vector result = new Vector(this.elements.length);
         for (int i = 0; i < result.elements.length; ++i) {
             result.elements[i] = this.elements[i] + other.elements[i];
@@ -254,7 +268,7 @@ public class Vector {
             assert (d == a.dotSequential(b));
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            System.err.println("computations interrupted");
+            System.out.println("computations interrupted");
         }
     }
 
