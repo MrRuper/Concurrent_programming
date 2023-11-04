@@ -8,7 +8,11 @@ The goal of this laboratory is to show how to deal with threads interruptions an
 
 # SpawnableWorkers description
 
-This code dynamically creates **Threads** which are stored in some **List**. Every created thread is numbered by a **nextId** variable (the main thread has **Id** $$0$$, the first created thread has **Id** $$1$$ and so on). Every created threads are immediately working and their work is only sleeping. To create new thread you simply type in the terminal some positive number **x**. This command will create thread which sleeps for **x** seconds. To interrupt some thread you simply type **-thread_id**.
+This code dynamically creates **Threads** which are stored in some **List**. Every created thread is numbered by a **nextId** variable (the main thread has $$Id = 0$$, the first created thread has $$Id = 1$$ and so on). Every created threads are immediately working and their work is only sleeping. To create new thread you simply type in the terminal some positive number **x**. This command will create thread which sleeps for **x** seconds. To interrupt some thread you simply type \
+
+```
+-thread_id
+```
 
 **Remark**: you can not interrupt the finished thread!
 
