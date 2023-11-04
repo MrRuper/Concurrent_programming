@@ -27,6 +27,7 @@ public class MatrixRowSumsConcurrent {
 
             for (int counter = 0; counter < NUM_COLUMNS; counter++){
                 Runnable r = new PerColumnDefinitionApplier(counter, barrier, barrier2, definition, row_save);
+
                 all_threads[counter] = new Thread(r);
                 all_threads[counter].start();
             }
@@ -95,7 +96,6 @@ public class MatrixRowSumsConcurrent {
                 for (int row_number = 0; row_number < NUM_ROWS; row_number++) {
                     // Summing.
                     row_sum[myColumnNo] = definition.applyAsInt(row_number, myColumnNo);
-
 
                     // Synchronized.
                     try{

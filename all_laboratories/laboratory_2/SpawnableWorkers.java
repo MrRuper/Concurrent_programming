@@ -1,10 +1,11 @@
+// This code is taking from a MIM UW source.
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class SpawnableWorkers {
-
     private static class Worker implements Runnable {
 
         private final int id;
