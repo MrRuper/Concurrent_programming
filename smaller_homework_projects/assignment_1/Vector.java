@@ -53,7 +53,7 @@ public class Vector {
 
 			if (i < number_of_threads - 1) {
 				r = new Sum(BLOCK_LENGTH * i,
-							 BLOCK_LENGTH * i + BLOCK_LENGTH - 1,
+							BLOCK_LENGTH * i + BLOCK_LENGTH - 1,
 							vector,
 							other.vector,
 							answer);
@@ -61,17 +61,17 @@ public class Vector {
 			else { // Deal with last thread.
 				if (last_block_length > 0) {
 					r = new Sum(BLOCK_LENGTH * i,
-							BLOCK_LENGTH * i + last_block_length - 1,
-							vector,
-							other.vector,
-							answer);
+								BLOCK_LENGTH * i + last_block_length - 1,
+								vector,
+								other.vector,
+								answer);
 				}
 				else {
 					r = new Sum(BLOCK_LENGTH * i,
-							BLOCK_LENGTH * i + BLOCK_LENGTH - 1,
-							vector,
-							other.vector,
-							answer);
+								BLOCK_LENGTH * i + BLOCK_LENGTH - 1,
+								vector,
+								other.vector,
+								answer);
 				}
 			}
 
@@ -92,6 +92,7 @@ public class Vector {
 			}
 			catch(InterruptedException e) {
 				System.out.println("Thread was interrupted during computations");
+				
 				System.exit(1);
 			}
 		}
